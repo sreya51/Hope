@@ -1,0 +1,222 @@
+.resources-page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 48px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.resources-header {
+  margin-bottom: 32px;
+}
+
+.res-badge {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.resources-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.resources-header p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.res-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0;
+}
+
+.res-tabs button {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  margin-bottom: -1px;
+}
+
+.res-tabs button:hover {
+  color: #111;
+}
+
+.res-tabs button.active {
+  color: #111;
+  border-bottom: 2px solid #111;
+}
+
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.res-card {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.res-card:hover {
+  border-color: #111;
+}
+
+.res-type {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.res-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.res-card p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.req-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: #C0392B;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.req-btn:hover {
+  background: #922B21;
+}
+
+.share-container {
+  max-width: 560px;
+}
+
+.share-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111;
+  background: #f9f9f9;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #111;
+  background: #fff;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #333;
+}
+
+.share-success {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.share-success div {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.share-success h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.share-success p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+.share-success button {
+  padding: 12px 28px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.share-success button:hover {
+  background: #333;
+}
