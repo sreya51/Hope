@@ -1,16 +1,35 @@
-# React + Vite
+# Hope — A Web-Based Emergency Relief Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Connecting Hope, Delivering Aid
 
-Currently, two official plugins are available:
+Hope is a web-based emergency relief platform designed to support people living in crisis and war-affected regions such as Gaza, Ukraine, and Syria. It allows users to send distress signals, find safe shelters, connect with volunteers, and access life-saving resources through a simple digital interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **SOS Emergency Button** — Send an instant distress signal with your location
+- **Shelter Map** — Interactive map showing shelters, hospitals, and food centers
+- **Volunteer Registration** — Register your skills to help people in need
+- **Donation System** — Donate money, goods, or services
+- **Resource Sharing** — List or request food, medicine, water, and supplies
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React (Vite), React Router DOM, Leaflet.js
+- Node.js, Express.js, MongoDB Atlas, Socket.IO
+
+---
+
+## Team
+
+| Name | Student ID |
+|------|-----------|
+| Sreya Ghosh | 231-115-051 |
+| Rijoana Rasheda Salam | 231-115-076 |
+
+**Supervisor:** Abdul Wadud Shakib  
+**Department:** CSE, Metropolitan University, Sylhet  
+**Date:** March 2026

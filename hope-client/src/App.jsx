@@ -6,6 +6,8 @@ import Map from './pages/Map'
 import Volunteer from './pages/Volunteer'
 import Donate from './pages/Donate'
 import Resources from './pages/Resources'
+import HealthTips from './pages/HealthTips'
+import Login from './pages/Login'
 import './App.css'
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/health" element={<HealthTips />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )
