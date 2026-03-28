@@ -1,0 +1,136 @@
+.admin-page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 48px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 32px;
+}
+
+.admin-badge {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.admin-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.admin-header p {
+  font-size: 15px;
+  color: #666;
+}
+
+.admin-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-card span {
+  font-size: 36px;
+  font-weight: 800;
+  color: #C0392B;
+  display: block;
+}
+
+.stat-card p {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.loading, .no-data {
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  padding: 48px 0;
+}
+
+.sos-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sos-row {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sos-row.pending { border-left: 4px solid #C0392B; }
+.sos-row.active { border-left: 4px solid #F39C12; }
+.sos-row.resolved { border-left: 4px solid #27AE60; }
+
+.sos-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.sos-info p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.sos-location { color: #888 !important; }
+.sos-time { color: #aaa !important; font-size: 12px !important; }
+
+.sos-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.status-badge.pending { background: #fdecea; color: #C0392B; }
+.status-badge.active { background: #fef9e7; color: #F39C12; }
+.status-badge.resolved { background: #eafaf1; color: #27AE60; }
+
+.sos-actions select {
+  padding: 8px 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #111;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+}

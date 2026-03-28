@@ -8,6 +8,7 @@ import Donate from './pages/Donate'
 import Resources from './pages/Resources'
 import HealthTips from './pages/HealthTips'
 import Login from './pages/Login'
+import Admin from './pages/Admin'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/health" element={<HealthTips />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   )
