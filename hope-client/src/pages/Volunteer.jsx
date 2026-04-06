@@ -3,6 +3,7 @@ import './Volunteer.css'
 
 function Volunteer() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '', email: '', phone: '', location: '', skills: []
   })
@@ -18,9 +19,20 @@ function Volunteer() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+    try {
+      const res = await fetch('http://localhost:5000/api/volunteer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      })
+      if (!res.ok) throw new Error('Failed')
+      setSubmitted(true)
+    } catch (err) {
+      setError('Failed to submit. Please try again.')
+    }
   }
 
   return (
@@ -35,10 +47,11 @@ function Volunteer() {
       ) : (
         <div className="vol-container">
           <div className="vol-header">
-            <span className="vol-badge">🙋 Volunteer</span>
+            <span className="vol-badge">Volunteer</span>
             <h1>Join as a Volunteer</h1>
             <p>Register your skills and help people in crisis. Every helping hand matters.</p>
           </div>
+          {error && <p style={{ color: '#C0392B', fontSize: '13px', marginBottom: '12px' }}>{error}</p>}
           <form onSubmit={handleSubmit} className="vol-form">
             <div className="form-group">
               <label>Full Name</label>

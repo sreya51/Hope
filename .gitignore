@@ -1,3 +1,8 @@
 node_modules/
 .env
+**/.envnode_modules/
+.env
 **/.env
+dist/
+build/
+.vscode/
