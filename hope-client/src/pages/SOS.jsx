@@ -34,34 +34,80 @@ function SOS() {
           <button onClick={() => setSubmitted(false)}>Send Another</button>
         </div>
       ) : (
-        <div className="sos-container">
-          <div className="sos-header">
-            <span className="sos-badge">Emergency</span>
-            <h1>Send SOS Signal</h1>
-            <p>Fill in the details below. Your signal will be sent to nearby volunteers and relief teams immediately.</p>
-          </div>
-          {error && <p style={{ color: '#C0392B', fontSize: '13px', marginBottom: '12px' }}>{error}</p>}
-          <form onSubmit={handleSubmit} className="sos-form">
-            <div className="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="Enter your name"
-                value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
-            </div>
-            <div className="form-group">
-              <label>Situation</label>
-              <textarea placeholder="Describe your emergency situation..."
-                value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={4} />
-            </div>
-            <div className="form-group">
-              <label>Location</label>
-              <div className="location-row">
-                <input type="text" placeholder="Your location"
-                  value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} />
-                <button type="button" className="location-btn" onClick={getLocation}>Detect</button>
+        <div className="sos-card">
+
+          {/* LEFT PANEL */}
+          <div className="sos-panel">
+            <div className="sos-panel-bg"></div>
+            <div className="sos-panel-content">
+              <div className="sos-logo">HOPE</div>
+              <div className="sos-divider"></div>
+
+              <div className="panel-title">Send <span>SOS</span><br />Signal</div>
+              <div className="panel-sub">Your distress signal will be sent to nearby volunteers and relief teams immediately.</div>
+              <div className="sos-steps">
+                <div className="sos-step">
+                  <div className="step-num">1</div>
+                  <div className="step-text">Enter your name and situation</div>
+                </div>
+                <div className="sos-step">
+                  <div className="step-num">2</div>
+                  <div className="step-text">Share your location</div>
+                </div>
+                <div className="sos-step">
+                  <div className="step-num">3</div>
+                  <div className="step-text">Hit Send — help is on the way</div>
+                </div>
               </div>
             </div>
-            <button type="submit" className="submit-btn">Send SOS Signal</button>
-          </form>
+          </div>
+
+          {/* RIGHT FORM */}
+          <div className="sos-form-side">
+            <div className="sos-badge">
+              <div className="badge-dot"></div>
+              Emergency
+            </div>
+            <div className="form-title">I Need Help</div>
+            <div className="form-sub">Fill in the details below. We'll connect you with help immediately.</div>
+
+            {error && <div className="error-msg">{error}</div>}
+
+            <form onSubmit={handleSubmit} className="fields">
+              <div className="floating">
+                <input type="text" placeholder=" " id="sos-name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required />
+                <label htmlFor="sos-name">Your Name</label>
+              </div>
+
+              <div className="floating">
+                <textarea placeholder=" " id="sos-msg" rows={3}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  required />
+                <label htmlFor="sos-msg">Describe your emergency situation</label>
+              </div>
+
+              <div className="loc-row">
+                <div className="floating">
+                  <input type="text" placeholder=" " id="sos-loc"
+                    value={form.location}
+                    onChange={(e) => setForm({ ...form, location: e.target.value })} />
+                  <label htmlFor="sos-loc">Your Location</label>
+                </div>
+                <button type="button" className="detect-btn" onClick={getLocation}>
+                   Detect
+                </button>
+              </div>
+
+              <button type="submit" className="sos-btn">
+                Send SOS Signal
+              </button>
+            </form>
+          </div>
+
         </div>
       )}
     </div>

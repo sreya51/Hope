@@ -1,51 +1,192 @@
 .map-page {
-  background: #ffffff;
-  min-height: 100vh;
-  padding: 48px 32px;
-  max-width: 1000px;
-  margin: 0 auto;
+  background: #fff;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  font-family: sans-serif;
+  color: #111;
+  overflow: hidden;
 }
 
-.map-header {
-  margin-bottom: 24px;
+/* SIDEBAR */
+.map-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #efefef;
+  overflow: hidden;
 }
 
-.map-badge {
-  display: inline-block;
+.sidebar-top {
   background: #111;
+  padding: 20px 24px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  font-size: 14px;
+  font-weight: 800;
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
+  letter-spacing: 2px;
   margin-bottom: 16px;
 }
 
-.map-header h1 {
-  font-size: 32px;
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.sidebar-sub {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.sidebar-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.sfilt {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1.5px solid #333;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sfilt:hover { border-color: #fff; color: #fff; }
+.sfilt.active.all { background: #444; border-color: #444; color: #fff; }
+.sfilt.active.shelter { background: #C0392B; border-color: #C0392B; color: #fff; }
+.sfilt.active.hospital { background: #1565c0; border-color: #1565c0; color: #fff; }
+.sfilt.active.food { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+
+.sidebar-count {
+  padding: 10px 24px;
+  font-size: 11px;
+  color: #aaa;
+  background: #fafafa;
+  border-bottom: 1px solid #efefef;
+  flex-shrink: 0;
+}
+
+.sidebar-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sitem {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sitem:hover { background: #fafafa; }
+
+.sitem.active {
+  background: #fff5f5;
+  border-left: 3px solid #C0392B;
+  padding-left: 21px;
+}
+
+.sitem-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  gap: 8px;
+}
+
+.sitem-name {
+  font-size: 13px;
   font-weight: 800;
   color: #111;
-  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-.map-header p {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.6;
+.sitem-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  flex-shrink: 0;
 }
 
-.map-legend {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 16px;
-  font-size: 13px;
-  color: #444;
+.sitem-tag.shelter { background: #fff0f0; color: #C0392B; }
+.sitem-tag.hospital { background: #e3f2fd; color: #1565c0; }
+.sitem-tag.food { background: #e8f5e9; color: #2e7d32; }
+
+.sitem-loc {
+  font-size: 11px;
+  color: #888;
+}
+
+/* MAP AREA */
+.map-area {
+  position: relative;
+  overflow: hidden;
 }
 
 #map {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 500px;
-  border-radius: 12px;
-  border: 1px solid #e5e5e5;
+  height: 100%;
   z-index: 1;
+}
+
+/* LEGEND */
+.map-legend {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #555;
+  font-weight: 500;
+}
+
+.leg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.leg-dot.shelter { background: #C0392B; }
+.leg-dot.hospital { background: #1565c0; }
+.leg-dot.food { background: #2e7d32; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .map-page { height: auto; }
+  .map-hero { height: 60vh; }
+  .map-topbar { padding: 14px 20px; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .map-center-text h1 { font-size: 28px; }
+  .map-filter-pills { flex-wrap: wrap; gap: 6px; }
+  .map-stats { padding: 12px 20px; }
+  .mstat-num { font-size: 18px; }
+  .map-sidebar { grid-template-columns: 1fr; }
+  .bottom-sheet { border-radius: 20px 20px 0 0; }
 }

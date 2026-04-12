@@ -1,7 +1,8 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,62 +10,97 @@
 }
 
 .modal-box {
-  background: #fff;
-  border-radius: 16px;
-  padding: 40px 32px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 24px;
   max-width: 400px;
   width: 90%;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-top {
+  background: rgba(17,17,17,0.8);
+  backdrop-filter: blur(12px);
+  padding: 36px 32px 28px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-top-bg {
+  position: absolute;
+  inset: 0;
+  background: url('/your-image.jpg') center/cover no-repeat;
+  opacity: 0.08;
 }
 
 .modal-icon {
-  font-size: 56px;
-  margin-bottom: 16px;
+  font-size: 52px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
 }
 
-.modal-box h2 {
+.modal-top h2 {
   font-size: 22px;
   font-weight: 800;
-  color: #111;
-  margin-bottom: 12px;
+  color: #fff;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
 }
 
-.modal-box p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 28px;
+.modal-top p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
 }
 
-.modal-buttons {
+.modal-bottom {
+  padding: 20px 28px 28px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: rgba(255,255,255,0.05);
 }
 
 .stay-btn {
+  width: 100%;
   padding: 14px;
-  background: #111;
-  color: #fff;
+  background: rgba(255,255,255,0.9);
+  color: #111;
   border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .stay-btn:hover {
-  background: #333;
+  background: #fff;
+  transform: translateY(-1px);
 }
 
 .leave-btn {
-  padding: 14px;
+  width: 100%;
+  padding: 13px;
   background: transparent;
-  color: #888;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -72,4 +108,5 @@
 .leave-btn:hover {
   border-color: #C0392B;
   color: #C0392B;
+  background: rgba(192,57,43,0.08);
 }
