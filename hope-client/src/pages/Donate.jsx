@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { submitDonate } from '../api'
 import './Donate.css'
 
 function Donate() {
@@ -6,9 +7,15 @@ function Donate() {
   const [form, setForm] = useState({ name: '', email: '', amount: '', type: 'money', message: '', payment: 'googlepay' })
   const amounts = ['10', '25', '50', '100']
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    try {
+      await submitDonate(form)
+      setSubmitted(true)
+      setForm({ name: '', email: '', amount: '', type: 'money', message: '', payment: 'googlepay' })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -25,7 +32,7 @@ function Donate() {
 
           {/* LEFT */}
           <div className="donate-left">
-             <span className="donate-badge"> Donate</span>
+            <span className="donate-badge"> Donate</span>
             <div className="donate-left-bg"></div>
             <div className="donate-left-content">
               <h1>Help save lives.<br /><span>Donate</span> now.</h1>
@@ -49,7 +56,6 @@ function Donate() {
 
           {/* RIGHT */}
           <div className="donate-right">
-           
             <h2>Your Donation</h2>
             <p className="donate-sub">100% of your donation goes directly to relief efforts.</p>
 
@@ -143,7 +149,6 @@ function Donate() {
 
               <button type="submit" className="submit-btn">
                 ❤️ Donate Now
-          
               </button>
 
             </form>

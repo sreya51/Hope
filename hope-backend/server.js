@@ -22,6 +22,8 @@ app.use((req, res, next) => { req.io = io; next() })
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/sos', require('./routes/sos'))
 app.use('/api/volunteer', require('./routes/volunteer'))
+app.use('/api/donate', require('./routes/donate'))
+app.use('/api/resource', require('./routes/resource'))
 
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id)

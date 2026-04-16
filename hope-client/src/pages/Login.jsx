@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login, register } from '../api'
 import './Login.css'
@@ -11,6 +11,10 @@ function Login() {
   const [roleOpen, setRoleOpen] = useState(false)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    setForm({ name: '', email: '', password: '', role: 'user' })
+  }, [])
+
   const roleLabels = {
     user: 'Affected Person',
     volunteer: 'Volunteer',
@@ -18,9 +22,9 @@ function Login() {
   }
 
   const roleOptions = [
-    { value: 'user', label: 'Affected Person'  },
-    { value: 'volunteer', label: 'Volunteer'},
-    { value: 'ngo', label: 'NGO / Relief Team'},
+    { value: 'user', label: 'Affected Person' },
+    { value: 'volunteer', label: 'Volunteer' },
+    { value: 'ngo', label: 'NGO / Relief Team' },
   ]
 
   const handleSubmit = async (e) => {
@@ -54,12 +58,13 @@ function Login() {
             <div className="form-title">Hello, Welcome!</div>
             <div className="form-sub">Sign in to your HOPE account</div>
             {isLogin && error && <div className="error-msg">{error}</div>}
-            <form onSubmit={handleSubmit} className="fields">
+            <form onSubmit={handleSubmit} className="fields" autoComplete="off">
               <div className="floating">
                 <input
                   type="email"
                   placeholder=" "
                   id="l-email"
+                  autoComplete="new-password"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required={isLogin} />
@@ -70,25 +75,26 @@ function Login() {
                   type={showPass ? 'text' : 'password'}
                   placeholder=" "
                   id="l-pass"
+                  autoComplete="new-password"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   required={isLogin} />
                 <label htmlFor="l-pass">Password</label>
                 <button type="button" className="pass-toggle"
-  onClick={() => setShowPass(!showPass)}>
-  {showPass ? (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
-      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-      <line x1="1" y1="1" x2="23" y2="23"/>
-    </svg>
-  ) : (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-      <circle cx="12" cy="12" r="3"/>
-    </svg>
-  )}
-</button>
+                  onClick={() => setShowPass(!showPass)}>
+                  {showPass ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                      <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  )}
+                </button>
               </div>
               {isLogin && (
                 <button type="submit" className="submit-btn">Login</button>
@@ -101,12 +107,13 @@ function Login() {
             <div className="form-title">Create Account</div>
             <div className="form-sub">Join HOPE and make a difference</div>
             {!isLogin && error && <div className="error-msg">{error}</div>}
-            <form onSubmit={handleSubmit} className="fields">
+            <form onSubmit={handleSubmit} className="fields" autoComplete="off">
               <div className="floating">
                 <input
                   type="text"
                   placeholder=" "
                   id="r-name"
+                  autoComplete="new-password"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required={!isLogin} />
@@ -117,6 +124,7 @@ function Login() {
                   type="email"
                   placeholder=" "
                   id="r-email"
+                  autoComplete="new-password"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required={!isLogin} />
@@ -127,25 +135,26 @@ function Login() {
                   type={showPass ? 'text' : 'password'}
                   placeholder=" "
                   id="r-pass"
+                  autoComplete="new-password"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   required={!isLogin} />
                 <label htmlFor="r-pass">Password</label>
                 <button type="button" className="pass-toggle"
-  onClick={() => setShowPass(!showPass)}>
-  {showPass ? (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
-      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-      <line x1="1" y1="1" x2="23" y2="23"/>
-    </svg>
-  ) : (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-      <circle cx="12" cy="12" r="3"/>
-    </svg>
-  )}
-</button>
+                  onClick={() => setShowPass(!showPass)}>
+                  {showPass ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                      <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  )}
+                </button>
               </div>
 
               {/* CUSTOM DROPDOWN */}

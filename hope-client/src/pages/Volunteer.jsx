@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { registerVolunteer } from '../api'
 import './Volunteer.css'
 
 function Volunteer() {
@@ -31,15 +32,11 @@ function Volunteer() {
     e.preventDefault()
     setError('')
     try {
-      const res = await fetch('http://localhost:5000/api/volunteer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      })
-      if (!res.ok) throw new Error('Failed')
+      await registerVolunteer(form)
       setSubmitted(true)
+      setForm({ name: '', email: '', phone: '', location: '', skills: [] })
     } catch (err) {
-      setError('Failed to submit. Please try again.')
+      setError(err.response?.data?.message || 'Failed to submit. Please try again.')
     }
   }
 

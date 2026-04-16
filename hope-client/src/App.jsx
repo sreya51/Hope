@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SOS from './pages/SOS'
@@ -10,6 +10,11 @@ import HealthTips from './pages/HealthTips'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
 import './App.css'
+
+function AdminRoute() {
+  const user = JSON.parse(localStorage.getItem('user') || '{}')
+  return user?.role === 'admin' ? <Admin /> : <Navigate to="/" />
+}
 
 function App() {
   return (
@@ -24,7 +29,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/health" element={<HealthTips />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<AdminRoute />} />
       </Routes>
     </BrowserRouter>
   )
