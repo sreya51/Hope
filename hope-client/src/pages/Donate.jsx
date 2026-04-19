@@ -61,21 +61,7 @@ function Donate() {
 
             <form onSubmit={handleSubmit} className="donate-form">
 
-              {/* DONATION TYPE */}
-              <div className="form-group">
-                <div className="type-grid-label">Donation Type</div>
-                <div className="type-grid">
-                  {['money', 'goods', 'services'].map(type => (
-                    <button type="button" key={type}
-                      className={`type-btn ${form.type === type ? 'active' : ''}`}
-                      onClick={() => setForm({ ...form, type })}>
-                      <span className="type-label">
-                        {type === 'money' ? ' Money' : type === 'goods' ? ' Goods' : 'Services'}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+    
 
               {/* AMOUNT */}
               {form.type === 'money' && (

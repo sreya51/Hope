@@ -9,6 +9,7 @@ function Resources() {
   const [requested, setRequested] = useState({})
   const [typeOpen, setTypeOpen] = useState(false)
   const [resources, setResources] = useState([])
+  
 
   const typeLabels = {
     food: 'Food',
